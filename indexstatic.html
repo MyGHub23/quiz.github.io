@@ -541,9 +541,9 @@
             let startTime = null;
             let totalTime = 0;
             let intervalId = null;
-
+    
             const timerOverlay = document.getElementById("timerOverlay");
-
+    
             // Format time in hh:mm:ss
             const formatTime = (ms) => {
                 const totalSeconds = Math.floor(ms / 1000);
@@ -552,18 +552,18 @@
                 const seconds = String(totalSeconds % 60).padStart(2, "0");
                 return `${hours}:${minutes}:${seconds}`;
             };
-
+    
             // Update timer display
             const updateTimer = () => {
                 const elapsed = Date.now() - startTime;
                 timerOverlay.textContent = formatTime(elapsed);
             };
-
+    
             // Hide timer
             const hideTimer = () => {
                 timerOverlay.style.display = "none";
             };
-
+    
             // Fetch quiz data
             fetch("quiz_data.json")
                 .then((response) => {
@@ -575,7 +575,7 @@
                 .then((data) => {
                     const quizData = data.questions;
                     const categories = data.categories;
-
+    
                     // Populate category dropdown
                     const categorySelect = document.getElementById("category");
                     categories.forEach((category) => {
@@ -584,7 +584,8 @@
                         option.innerText = category;
                         categorySelect.appendChild(option);
                     });
-
+    
+                    // DOM elements
                     const questionEl = document.getElementById("question");
                     const answersEls = document.querySelectorAll(".answer");
                     const aText = document.getElementById("a_text");
@@ -596,33 +597,33 @@
                     const quizImage = document.getElementById("quizImage");
                     const totansContainer = document.getElementById("totans-container");
                     const totrecordContainer = document.getElementById("totrecord-container");
-
+    
                     let currentQuiz = 0;
                     let score = 0;
                     let totans = 0;
                     let filteredQuizData = [];
                     let selectedAnswers = {};
-
+    
                     const updateTotansDisplay = () => {
                         totansContainer.textContent = totans;
                     };
-
+    
                     const updateTotrecordDisplay = (totalQuestions) => {
                         totrecordContainer.textContent = totalQuestions;
                     };
-
+    
                     // Load selected category
                     categorySelect.addEventListener("change", (e) => {
                         const selectedCategory = e.target.value;
                         filteredQuizData = selectedCategory === "all"
                             ? quizData
-                            : quizData.filter((q) => q.category === selectedCategory); // Updated property name
-
+                            : quizData.filter((q) => q.category === selectedCategory);
+    
                         if (filteredQuizData.length === 0) {
                             alert("No questions available for this category.");
                             return;
                         }
-
+    
                         currentQuiz = 0;
                         score = 0;
                         totans = 0;
@@ -631,7 +632,7 @@
                         updateTotrecordDisplay(filteredQuizData.length);
                         loadQuiz();
                     });
-
+    
                     // Load quiz question
                     const loadQuiz = () => {
                         deselectAnswers();
@@ -641,19 +642,23 @@
                         bText.innerText = currentQuizData.options[1];
                         cText.innerText = currentQuizData.options[2];
                         dText.innerText = currentQuizData.options[3];
-
+    
                         if (currentQuizData.qimage) {
-                            quizImage.src = `images/${currentQuizData.qimage}`; // "flag" directory is dynamically added
+                            quizImage.src = `images/${currentQuizData.qimage}`;
+                            quizImage.onerror = () => {
+                                console.error(`Image not found: ${quizImage.src}`);
+                                quizImage.style.display = "none";
+                            };
                             quizImage.style.display = "block";
                         } else {
                             quizImage.style.display = "none";
                         }
                     };
-
+    
                     const deselectAnswers = () => {
                         answersEls.forEach((answerEl) => (answerEl.checked = false));
                     };
-
+    
                     const getSelected = () => {
                         let answer;
                         answersEls.forEach((answerEl) => {
@@ -663,53 +668,53 @@
                         });
                         return answer;
                     };
-
+    
                     // Handle answer submission
                     submitBtn.addEventListener("click", () => {
                         const answer = getSelected();
-
+    
                         if (!startTime) {
                             startTime = Date.now();
-                            intervalId = setInterval(updateTimer, 1000);  // Update timer every second
+                            intervalId = setInterval(updateTimer, 1000);
                         }
-
+    
                         if (answer) {
                             totans++;
                             updateTotansDisplay();
-
+    
                             selectedAnswers[currentQuiz] = answer;
-
-                            const resultContainer = document.getElementById('resultContainer');
-                            if (!resultContainer) {
-                                const newResultContainer = document.createElement('div');
-                                newResultContainer.id = 'resultContainer';
-                                newResultContainer.style.position = 'absolute';
-                                newResultContainer.style.fontSize = '25px';
-                                newResultContainer.style.top = '67%';
-                                newResultContainer.style.left = '50%';
-                                newResultContainer.style.transform = 'translate(-50%, -50%)';
-                                newResultContainer.style.zIndex = '999';
-
+    
+                            const resultContainer = document.getElementById("resultContainer") || (() => {
+                                const newResultContainer = document.createElement("div");
+                                newResultContainer.id = "resultContainer";
+                                newResultContainer.style.cssText = `
+                                    position: absolute;
+                                    font-size: 25px;
+                                    top: 67%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    z-index: 999;
+                                `;
                                 document.body.appendChild(newResultContainer);
-                            }
-
-                            const existingResultContainer = document.getElementById('resultContainer');
+                                return newResultContainer;
+                            })();
+    
                             if (answer === filteredQuizData[currentQuiz].answer) {
                                 score++;
-                                existingResultContainer.innerHTML = '😊';
+                                resultContainer.textContent = "😊";
                             } else {
-                                existingResultContainer.innerHTML = '😢';
+                                resultContainer.textContent = "😢";
                             }
-
+    
                             setTimeout(() => {
-                                existingResultContainer.innerHTML = '';
-
+                                resultContainer.textContent = "";
+    
                                 currentQuiz++;
                                 if (currentQuiz < filteredQuizData.length) {
                                     loadQuiz();
                                 } else {
                                     clearInterval(intervalId);
-                                    hideTimer();  // Hide the timer when quiz finishes
+                                    hideTimer();
                                     showResults();
                                 }
                             }, 900);
@@ -717,19 +722,18 @@
                             alert("Please select an answer before submitting!");
                         }
                     });
-
-
+    
                     // Finish quiz
                     finishBtn.addEventListener("click", () => {
                         clearInterval(intervalId);
                         hideTimer();
                         showResults();
                     });
-
+    
                     const showResults = () => {
                         const quizContainer = document.querySelector(".quiz-container");
                         totalTime = Date.now() - startTime;
-
+    
                         quizContainer.innerHTML = `
                             <div class="center-content">
                                 <h3>You got <span style="color: red;">${score}</span> out of <span style="color: red;">${totans}</span> Questions</h3>
@@ -738,37 +742,31 @@
                                 <button id="show-all">Show Q/A</button>
                             </div>
                         `;
-
+    
                         document.getElementById("reload").addEventListener("click", () => {
                             location.reload();
                         });
-
+    
                         document.getElementById("show-all").addEventListener("click", () => {
                             let resultHTML = `<h3>All Questions and Answers</h3><div class="scroll-container">`;
-
+    
                             filteredQuizData.forEach((q, index) => {
                                 const userAnswer = selectedAnswers[index];
                                 resultHTML += `
                                     <div class="question-item">
-                                        <div>
-                                            <h4>Q${index + 1}: ${q.question}</h4>
-                                            <p style="color: ${q.answer === 'a' ? 'blue' : 'black'};">
-                                                A: ${q.options[0]} ${q.answer === 'a' && userAnswer === 'a' ? '✔️' : (userAnswer === 'a' ? '❌' : '')}
-                                            </p>
-                                            <p style="color: ${q.answer === 'b' ? 'blue' : 'black'};">
-                                                B: ${q.options[1]} ${q.answer === 'b' && userAnswer === 'b' ? '✔️' : (userAnswer === 'b' ? '❌' : '')}
-                                            </p>
-                                            <p style="color: ${q.answer === 'c' ? 'blue' : 'black'};">
-                                                C: ${q.options[2]} ${q.answer === 'c' && userAnswer === 'c' ? '✔️' : (userAnswer === 'c' ? '❌' : '')}
-                                            </p>
-                                            <p style="color: ${q.answer === 'd' ? 'blue' : 'black'};">
-                                                D: ${q.options[3]} ${q.answer === 'd' && userAnswer === 'd' ? '✔️' : (userAnswer === 'd' ? '❌' : '')}
-                                            </p>
-                                            <p><strong>Ans: ${q.answer.toUpperCase()}</strong></p>
-                                        </div>
+                                        <h4>Q${index + 1}: ${q.question}</h4>
+                                        ${q.options.map((opt, i) => {
+                                            const optKey = ["a", "b", "c", "d"][i];
+                                            return `
+                                                <p style="color: ${q.answer === optKey ? "blue" : "black"};">
+                                                    ${optKey.toUpperCase()}: ${opt} ${q.answer === optKey && userAnswer === optKey ? "✔️" : userAnswer === optKey ? "❌" : ""}
+                                                </p>
+                                            `;
+                                        }).join("")}
+                                        <p><strong>Ans: ${q.answer.toUpperCase()}</strong></p>
                                     </div>`;
                             });
-
+    
                             resultHTML += `</div><button onclick="location.reload()">Return</button>`;
                             quizContainer.innerHTML = resultHTML;
                         });
@@ -778,7 +776,7 @@
                     console.error("Error loading quiz data:", error);
                     alert("Failed to load quiz data. Please try again later.");
                 });
-
+    
             // Help button toggle
             document.getElementById("helpBtn").addEventListener("click", function () {
                 const helpText = document.getElementById("helpText");
@@ -786,8 +784,7 @@
             });
         });
     </script>
-
-
+    
 </body>
 
 </html>
