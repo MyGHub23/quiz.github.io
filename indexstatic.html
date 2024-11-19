@@ -754,16 +754,22 @@
                                 const userAnswer = selectedAnswers[index];
                                 resultHTML += `
                                     <div class="question-item">
-                                        <h4>Q${index + 1}: ${q.question}</h4>
-                                        ${q.options.map((opt, i) => {
-                                            const optKey = ["a", "b", "c", "d"][i];
-                                            return `
-                                                <p style="color: ${q.answer === optKey ? "blue" : "black"};">
-                                                    ${optKey.toUpperCase()}: ${opt} ${q.answer === optKey && userAnswer === optKey ? "✔️" : userAnswer === optKey ? "❌" : ""}
-                                                </p>
-                                            `;
-                                        }).join("")}
-                                        <p><strong>Ans: ${q.answer.toUpperCase()}</strong></p>
+                                        <div>
+                                            <h4>Q${index + 1}: ${q.question}</h4>
+                                            <p style="color: ${q.answer === 'a' ? 'blue' : 'black'};">
+                                                A: ${q.options[0]} ${q.answer === 'a' && userAnswer === 'a' ? '✔️' : (userAnswer === 'a' ? '❌' : '')}
+                                            </p>
+                                            <p style="color: ${q.answer === 'b' ? 'blue' : 'black'};">
+                                                B: ${q.options[1]} ${q.answer === 'b' && userAnswer === 'b' ? '✔️' : (userAnswer === 'b' ? '❌' : '')}
+                                            </p>
+                                            <p style="color: ${q.answer === 'c' ? 'blue' : 'black'};">
+                                                C: ${q.options[2]} ${q.answer === 'c' && userAnswer === 'c' ? '✔️' : (userAnswer === 'c' ? '❌' : '')}
+                                            </p>
+                                            <p style="color: ${q.answer === 'd' ? 'blue' : 'black'};">
+                                                D: ${q.options[3]} ${q.answer === 'd' && userAnswer === 'd' ? '✔️' : (userAnswer === 'd' ? '❌' : '')}
+                                            </p>
+                                            <p><strong>Ans: ${q.answer.toUpperCase()}</strong></p>
+                                        </div>
                                     </div>`;
                             });
     
