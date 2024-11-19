@@ -1,5 +1,5 @@
 {
-  "categories": ["Abbreviation","AI","Bangladesh","Capital", "Currency", "English", "Flag", "General", "ICT-01", "ICT-02","ICT-03","Islam-01", "Islam-02", "Math", "History", "River&Sea"],
+  "categories": ["Abbreviation","AI","Bangladesh","Capital", "Currency", "English", "Flag", "People", "General", "ICT-01", "ICT-02","ICT-03","Islam-01", "Islam-02", "Math",  "River&Sea"],
   "questions": [
 
     {
@@ -2383,35 +2383,7 @@
   ],
   "answer": "b"
 },
-    {
-      "category": "History",
-      "question": "Who was the first President of the USA?",
-      "options": [
-        "Abraham Lincoln",
-        "George Washington",
-        "Thomas Jefferson",
-        "John Adams"
-      ],
-      "answer": "b"
-    },
-    {
-      "category": "History",
-      "question": "In which year did World War II end?",
-      "options": ["1939", "1945", "1948", "1950"],
-      "answer": "b"
-    },
-    {
-      "category": "History",
-      "question": "Who discovered America?",
-      "options": [
-        "Christopher Columbus",
-        "Vasco da Gama",
-        "James Cook",
-        "Ferdinand Magellan"
-      ],
-      "answer": "a"
-    },
-
+   
     {
       "category": "River&Sea",
       "question": "The Rhine River flows through which European country?",
@@ -3253,7 +3225,266 @@
     ],
     "answer": "c",
     "qimage": "01Belgium.jpg"
-}
+},
 
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Albert Schweitzer",
+        "Freddie Mercury",
+        "Elvis Presley",
+        "Michael Jackso"
+    ],
+    "answer": "d",
+    "qimage": "02MichaelJackson.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Mike Tyson",
+        "Floyd Mayweather",
+        "Muhammad Ali",
+        "George Foreman"
+    ],
+    "answer": "c",
+    "qimage": "02MuhammadAli.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Buster Keaton",
+        "Charlie Chaplin",
+        "Harold Lloyd",
+        "Groucho Marx"
+    ],
+    "answer": "b",
+    "qimage": "02CharlesChaplin.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Jeff Bezos",
+        "Elon Musk",
+        "Mark Zuckerberg",
+        "Bill Gates"
+    ],
+    "answer": "c",
+    "qimage": "02markzuckerberg.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Diego Maradona",
+        "Lionel Messi",
+        "Pele",
+        "Cristiano Ronaldo"
+    ],
+    "answer": "c",
+    "qimage": "02pele.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Isaac Newton",
+        "Charles Babbage",
+        "Alan Turing",
+        "Thomas Edison"
+    ],
+    "answer": "b",
+    "qimage": "02CharlesBabbage.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Malcolm X",
+        "Nelson Mandela",
+        "Martin Luther King Jr.",
+        "Mahatma Gandhi"
+    ],
+    "answer": "c",
+    "qimage": "02lutherking.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Shirin Ebadi",
+        "Malala Yousafzai",
+        "Wangari Maathai",
+        "Ellen Johnson Sirleaf"
+    ],
+    "answer": "b",
+    "qimage": "02Malala_Yousafzai.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Bill Gates",
+        "Steve Jobs",
+        "Mark Zuckerberg",
+        "Elon Musk"
+    ],
+    "answer": "b",
+    "qimage": "02stevejobs.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Richard Feynman",
+        "Niels Bohr",
+        "Enrico Fermi",
+        "Stephen Hawking"
+    ],
+    "answer": "d",
+    "qimage": "02StephenHawking.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Raphael",
+        "Leonardo da Vinci",
+        "Michelangelo",
+        "Donatello"
+    ],
+    "answer": "b",
+    "qimage": "02LeonardodaVinci.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "George Washington",
+        "Thomas Jefferson",
+        "Abraham Lincoln",
+        "Andrew Jackson"
+    ],
+    "answer": "b",
+    "qimage": "02AbrahamLincoln.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Aristotle",
+        "Socrates",
+        "APlato",
+        "Heraclitus"
+    ],
+    "answer": "a",
+    "qimage": "02aristotle.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Rabindranath Tagore",
+        "Bankim Chandra",
+        "Syed Mujtaba Ali",
+        "Kazi Nazrul Islam"
+    ],
+    "answer": "d",
+    "qimage": "02KaziNazrulslam.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Steve Jobs",
+        "Jeff Bezos",
+        "Bill Gates",
+        "Elon Musk"
+    ],
+    "answer": "c",
+    "qimage": "02Bill-Gates.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Desmond Tutu",
+        "Martin Luther King Jr",
+        "Kofi Annan",
+        "Nelson Mandela"
+    ],
+    "answer": "d",
+    "qimage": "02Nelson-Mandela.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Indira Gandhi",
+        "Florence Nightingale",
+        "Mother Teresa",
+        "Margaret Thatcher"
+    ],
+    "answer": "c",
+    "qimage": "02MotherTeresa.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Abraham Lincoln",
+        "APJ Abdul Kalam",
+        "Walt Disney",
+        "Ratan Tata"
+    ],
+    "answer": "b",
+    "qimage": "02A_P_J_Abdul_Kalam.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Galileo Galilei",
+        "Albert Einstein",
+        "Isaac Newton",
+        "Johannes Kepler"
+    ],
+    "answer": "c",
+    "qimage": "02isaacnewton.jpg"
+},
+
+{
+    "category": "People",
+    "question": "Who is the person?",
+    "options": [
+        "Galileo Galilei",
+        "Albert Einstein",
+        "Isaac Newton",
+        "Johannes Kepler"
+    ],
+    "answer": "c",
+    "qimage": "02isaacnewton.jpg"
+}
   ]
 }
