@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz by Abu Momen</title>
+    <meta name="description"
+        content="Explore quizzes on ICT, AI, General Knowledge, History, Islam, Flags, Capitals, Math, Famous Persons, and more. Perfect for trivia lovers and learners!">
+    <meta name="keywords"
+        content="quiz, MCQ, ICT quiz, AI quiz, history questions, Islam trivia, general knowledge test, flags and capitals, currency quiz, math questions, famous persons trivia, English grammar test, Bangladesh quiz, abbreviations, rivers and seas trivia, What is the full form of AI, BIOS is used, কম্পিউটারের আবিষ্কারক কে, learning quiz, Abu Momen quiz hub">
+    <meta name="author" content="Abu Momen">
+
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:title" content="Quiz Hub by Abu Momen" />
+    <meta property="og:description"
+        content="Test your knowledge with quizzes on 16 categories including AI, Math, History, and more!" />
+    <meta property="og:image" content="https://softfaculty.com/apps/myquiz/assets/og-image.png" />
+    <meta property="og:url" content="https://softfaculty.com/apps/myquiz/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quiz Hub by Abu Momen">
+    <meta name="twitter:description" content="Test your knowledge with quizzes on ICT, General Knowledge, and more!">
+    <meta name="twitter:image" content="https://softfaculty.com/apps/myquiz/assets/twitter-image.png">
+
+    <!-- Structured Data: FAQ Schema -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What are the quiz categories available?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "You can explore quizzes on ICT, General Knowledge, History, Islam, Flags, Capitals, Math, Famous Persons, and more."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How can I access the quizzes?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Select a category from the dropdown menu, answer the questions, and view your results!"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this quiz platform free to use?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, the platform is completely free for all users."
+                    }
+                }
+            ]
+        }
+        </script>
+
+    <!-- Structured Data: Quiz Schema -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Quiz",
+            "name": "Quiz Hub by Abu Momen",
+            "description": "Explore quizzes on ICT, AI, History, General Knowledge, and more!",
+            "provider": {
+                "@type": "Organization",
+                "name": "Soft Faculty",
+                "url": "https://softfaculty.com"
+            },
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "ICT"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "AI"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "History"
+                }
+            ]
+        }
+        </script>
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://softfaculty.com/apps/myquiz/">
+
+    <!-- Favicons -->
+    <link rel="icon" href="https://softfaculty.com/apps/myquiz/assets/favicon.ico" type="image/x-icon">
+
+
+
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f7f7f7;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .quiz-container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgb(45, 10, 158);
+            padding: 10px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .quiz-header h4 {
+            margin: 0 0 10px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+            margin-left: 20px;
+        }
+
+        .answer-container {
+            background-color: #f0f8ff;
+            border-radius: 5px;
+            padding: 3px;
+            color: rgb(183, 17, 233);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .answer-container:nth-child(2) {
+            background-color: #e6e6fa;
+        }
+
+        .answer-container:nth-child(3) {
+            background-color: #fffacd;
+        }
+
+        .answer-container:nth-child(4) {
+            background-color: #ffe4e1;
+        }
+
+        .answer+label {
+            margin-left: 25px;
+            cursor: pointer;
+        }
+
+        button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .category-select {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .category-select select,
+        .category-select option {
+            color: blue;
+            font-size: 16px;
+        }
+
+        .scroll-container {
+            max-height: 550px;
+            overflow-y: auto;
+            margin-top: 5px;
+        }
+
+        .question-item {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .return2 {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 10px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .center-button:hover {
+            background: #0056b3;
+        }
+
+        .answer {
+            display: none;
+        }
+
+        .answer+label::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            border: 2px solid rgb(241, 74, 40);
+            border-radius: 50%;
+            background-color: white;
+        }
+
+        .answer:checked+label::before {
+            background-color: yellow;
+            border-color: rgb(25, 14, 234);
+        }
+
+        .answer+label::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: darkblue;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .answer:checked+label::after {
+            opacity: 1;
+        }
+
+        .gap-parainside {
+            display: block;
+            padding-bottom: 10px;
+        }
+
+        .center-content {
+            text-align: center;
+        }
+
+        .center-content h3 {
+            margin-bottom: 20px;
+        }
+
+        .center-content button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button-container button {
+            margin: 0 10px;
+        }
+
+        @media (min-width: 768px) {
+            .quiz-container {
+                width: 20%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .quiz-container {
+                width: 20%;
+            }
+        }
+
+        /* Add this to your existing CSS */
+        .question-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            /* Align items at the top */
+        }
+
+        .question-item div {
+            flex: 1;
+            /* Allow the text container to take up available space */
+            max-width: 75%;
+            /* Ensure the text takes up to 75% of the space */
+            word-wrap: break-word;
+            /* Ensure long text wraps */
+        }
+
+        .question-item img {
+            margin-top: 60px;
+            margin-right: 5px;
+            /* Adjust this to move the image lower */
+            height: 90px;
+            width: 200px;
+            border-radius: 10px;
+            max-width: 50%;
+            /* Ensure the image takes up to 25% of the space */
+        }
+
+
+        /* helpText */
+        /* Default styles */
+        #helpText {
+            display: none;
+            text-align: left;
+            margin-top: 10px;
+            background-color: white;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1000;
+            width: 50%;
+            max-width: 300px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Media query for tablets and smaller screens */
+        @media (max-width: 1024px) {
+            #helpText {
+                width: 70%;
+                max-width: 90%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Media query for mobile screens */
+        @media (max-width: 600px) {
+            #helpText {
+                width: 90%;
+                max-width: 100%;
+                left: 2%;
+                transform: none;
+            }
+        }
+
+        #resultContainer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            /* Adjust size as needed */
+            z-index: 999;
+            /* Ensure it appears on top */
+            pointer-events: none;
+            /* Make sure it doesn't interfere with clicks */
+        }
+
+        /* Timer CSS for larger screens */
+        /* Timer CSS to match the Help button */
+        #timerOverlay {
+            position: absolute;
+            left: 10px;
+            /* Align to the left */
+            top: -8px;
+            background-color: blue;
+            /* Timer background */
+            color: white;
+            padding: 2px 5px;
+            /* Padding around timer */
+            border-radius: 5px;
+            /* Rounded corners */
+            font-size: 12px;
+            z-index: 1000;
+            white-space: nowrap;
+        }
+
+        /* Media query for tablets
+        @media (max-width: 1024px) {
+            #timerOverlay {           
+                right: 10px;
+    
+                top: -8px;
+                font-size: 12px;
+                z-index: 1000;
+            }
+        }
+        @media (max-width: 600px) {
+            #timerOverlay {
+                
+                right: 10px;
+                top: -8px;
+                font-size: 11px;
+                z-index: 1000;
+            }
+        }
+        */
+
+        #finish,
+        #submit {
+            background-color: blue;
+            color: #fff;
+            /* Adjust text color if needed */
+            border: none;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz-container">
+
+        <!-- <div style="text-align: center;">
+            <div style="background-color: yellow; border-radius: 10px; display: inline-block; padding: 2px 20px;">
+                <span style="color: blue; font-size: 18px; font-weight: bold;">*** Quiz ***</span>
+
+            </div>
+        </div> -->
+        <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+            <!-- Timer aligned to the left -->
+
+            <div id="timerOverlay" style="position: absolute; left: 10px; top: -8px;">
+                <span style="background-color: blue; color: white; padding: 2px 2px; border-radius: 5px;">
+                    00:00:00
+                </span>
+            </div>
+
+            <!-- Quiz text in the center -->
+            <div style="background-color: yellow; border-radius: 10px; display: inline-block; padding: 2px 15px;">
+                <span style="color: blue; font-size: 16px; font-weight: bold;">*** Quiz ***</span>
+            </div>
+            <!-- <div style="text-align: center; background-color: yellow; padding: 2px 2px; border-radius: 5px;">
+                <span style="color: blue; font-size: 18px; font-weight: bold;">*** Quiz ***</span>
+            </div> -->
+
+            <!-- Help button aligned to the right -->
+            <button id="helpBtn"
+                style="position: absolute; right: 10px; top: -8px; padding: 2px 5px; background-color: blue; border-radius: 5px;">
+                Help
+            </button>
+        </div>
+
+
+        <div id="helpText">
+            <p style="margin: 2px 0; color: blue; font-weight: bold; text-align: center;">
+                *** Here about 16 categories of Quiz ***
+            </p>
+            <p style="margin: 4px 0;color: blue; text-align: center;">You may select any category from the
+                &lt;select&gt; dropdown.</p>
+            <p style="text-align: justify; margin: 4px 0; color: rgb(183, 17, 233)">
+                After selecting, choose an answer by clicking the round button, then click submit to proceed. At the end
+                of the Quiz, you'll be taken to a results screen. On this screen, clicking &lt;Return&gt; will take you
+                back to the category selection area, where you can choose another category from the &lt;select&gt;
+                dropdown. If you click &lt;Show Q/A&gt;, you'll see detailed Q/A. Here, click the &lt;Return&gt; button
+                to go back to the category selection area again.
+            </p>
+            <p style="text-align: justify; margin: 4px 0; color: blue">
+                At any time, you can go to the results screen by clicking the &lt;Finish&gt; button.
+            </p>
+        </div>
+        <span class="gap-parainside"></span>
+        <div class="category-select">
+
+            <label for="category" style="color: blue; font-weight: bold;">&nbsp; &nbsp; &nbsp;Category:&nbsp; </label>
+
+            <select id="category">
+                <option value="all">Select</option>
+            </select>
+            <!-- Span added to display totans -->
+            <div id="totans-container" style="color: rgb(183, 17, 233);  margin-left: 5px;"></div>
+            <div id="totrecord-container" style="color: blue;  margin-left: 10px;"></div>
+
+        </div>
+
+        <div class="quiz-header">
+            <h5 id="question" style="color: rgb(183, 17, 233); font-weight: bold;">Question text</h5>
+            <div style="display: flex; justify-content: space-between;">
+                <ul id="answers" style="flex: 1;">
+                    <li class="answer-container">
+                        <input type="radio" name="answer" id="a" class="answer">
+                        <label for="a" id="a_text">Answer A</label>
+                    </li>
+                    <li class="answer-container">
+                        <input type="radio" name="answer" id="b" class="answer">
+                        <label for="b" id="b_text">Answer B</label>
+                    </li>
+                    <li class="answer-container">
+                        <input type="radio" name="answer" id="c" class="answer">
+                        <label for="c" id="c_text">Answer C</label>
+                    </li>
+                    <li class="answer-container">
+                        <input type="radio" name="answer" id="d" class="answer">
+                        <label for="d" id="d_text">Answer D</label>
+                    </li>
+                </ul>
+                <img id="quizImage"
+                    style="margin-top: 20px; margin-left: 5px; height: 90px; width: 80px; border-radius: 10px;" />
+            </div>
+        </div>
+        <div class="button-container">
+            <button id="finish" style="margin-right: 65px;">Finish</button>
+            <button id="submit">Submit</button>
+        </div>
+
+        <span class="gap-parainside"></span>
+        <span class="gap-parainside"></span>
+
+        <div style="text-align: center; font-size: 12px;">
+            <span style="background-color: rgb(247, 247, 187); padding: 2px 5px;">
+                Created By <b style="color: orange;">DreamCare</b> | &#169; 2024 All Rights Reserved
+            </span>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let startTime = null;
+            let totalTime = 0;
+            let intervalId = null;
+
+            const timerOverlay = document.getElementById("timerOverlay");
+
+            // Format time in hh:mm:ss
+            const formatTime = (ms) => {
+                const totalSeconds = Math.floor(ms / 1000);
+                const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, "0");
+                const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
+                const seconds = String(totalSeconds % 60).padStart(2, "0");
+                return `${hours}:${minutes}:${seconds}`;
+            };
+
+            // Update timer display
+            const updateTimer = () => {
+                const elapsed = Date.now() - startTime;
+                timerOverlay.textContent = formatTime(elapsed);
+            };
+
+            // Hide timer
+            const hideTimer = () => {
+                timerOverlay.style.display = "none";
+            };
+
+            // Fetch quiz data
+            fetch("quiz_data.json")
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Failed to load quiz data");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    const quizData = data.questions;
+                    const categories = data.categories;
+
+                    // Populate category dropdown
+                    const categorySelect = document.getElementById("category");
+                    categories.forEach((category) => {
+                        const option = document.createElement("option");
+                        option.value = category;
+                        option.innerText = category;
+                        categorySelect.appendChild(option);
+                    });
+
+                    const questionEl = document.getElementById("question");
+                    const answersEls = document.querySelectorAll(".answer");
+                    const aText = document.getElementById("a_text");
+                    const bText = document.getElementById("b_text");
+                    const cText = document.getElementById("c_text");
+                    const dText = document.getElementById("d_text");
+                    const submitBtn = document.getElementById("submit");
+                    const finishBtn = document.getElementById("finish");
+                    const quizImage = document.getElementById("quizImage");
+                    const totansContainer = document.getElementById("totans-container");
+                    const totrecordContainer = document.getElementById("totrecord-container");
+
+                    let currentQuiz = 0;
+                    let score = 0;
+                    let totans = 0;
+                    let filteredQuizData = [];
+                    let selectedAnswers = {};
+
+                    const updateTotansDisplay = () => {
+                        totansContainer.textContent = totans;
+                    };
+
+                    const updateTotrecordDisplay = (totalQuestions) => {
+                        totrecordContainer.textContent = totalQuestions;
+                    };
+
+                    // Load selected category
+                    categorySelect.addEventListener("change", (e) => {
+                        const selectedCategory = e.target.value;
+                        filteredQuizData = selectedCategory === "all"
+                            ? quizData
+                            : quizData.filter((q) => q.category === selectedCategory); // Updated property name
+
+                        if (filteredQuizData.length === 0) {
+                            alert("No questions available for this category.");
+                            return;
+                        }
+
+                        currentQuiz = 0;
+                        score = 0;
+                        totans = 0;
+                        selectedAnswers = {};
+                        updateTotansDisplay();
+                        updateTotrecordDisplay(filteredQuizData.length);
+                        loadQuiz();
+                    });
+
+                    // Load quiz question
+                    const loadQuiz = () => {
+                        deselectAnswers();
+                        const currentQuizData = filteredQuizData[currentQuiz];
+                        questionEl.innerText = currentQuizData.question;
+                        aText.innerText = currentQuizData.options[0];
+                        bText.innerText = currentQuizData.options[1];
+                        cText.innerText = currentQuizData.options[2];
+                        dText.innerText = currentQuizData.options[3];
+
+                        if (currentQuizData.qimage) {
+                            quizImage.src = `images/${currentQuizData.qimage}`; // "flag" directory is dynamically added
+                            quizImage.style.display = "block";
+                        } else {
+                            quizImage.style.display = "none";
+                        }
+                    };
+
+                    const deselectAnswers = () => {
+                        answersEls.forEach((answerEl) => (answerEl.checked = false));
+                    };
+
+                    const getSelected = () => {
+                        let answer;
+                        answersEls.forEach((answerEl) => {
+                            if (answerEl.checked) {
+                                answer = answerEl.id;
+                            }
+                        });
+                        return answer;
+                    };
+
+                    // Handle answer submission
+                    submitBtn.addEventListener("click", () => {
+                        const answer = getSelected();
+
+                        if (!startTime) {
+                            startTime = Date.now();
+                            intervalId = setInterval(updateTimer, 1000);  // Update timer every second
+                        }
+
+                        if (answer) {
+                            totans++;
+                            updateTotansDisplay();
+
+                            selectedAnswers[currentQuiz] = answer;
+
+                            const resultContainer = document.getElementById('resultContainer');
+                            if (!resultContainer) {
+                                const newResultContainer = document.createElement('div');
+                                newResultContainer.id = 'resultContainer';
+                                newResultContainer.style.position = 'absolute';
+                                newResultContainer.style.fontSize = '25px';
+                                newResultContainer.style.top = '67%';
+                                newResultContainer.style.left = '50%';
+                                newResultContainer.style.transform = 'translate(-50%, -50%)';
+                                newResultContainer.style.zIndex = '999';
+
+                                document.body.appendChild(newResultContainer);
+                            }
+
+                            const existingResultContainer = document.getElementById('resultContainer');
+                            if (answer === filteredQuizData[currentQuiz].answer) {
+                                score++;
+                                existingResultContainer.innerHTML = '😊';
+                            } else {
+                                existingResultContainer.innerHTML = '😢';
+                            }
+
+                            setTimeout(() => {
+                                existingResultContainer.innerHTML = '';
+
+                                currentQuiz++;
+                                if (currentQuiz < filteredQuizData.length) {
+                                    loadQuiz();
+                                } else {
+                                    clearInterval(intervalId);
+                                    hideTimer();  // Hide the timer when quiz finishes
+                                    showResults();
+                                }
+                            }, 900);
+                        } else {
+                            alert("Please select an answer before submitting!");
+                        }
+                    });
+
+
+                    // Finish quiz
+                    finishBtn.addEventListener("click", () => {
+                        clearInterval(intervalId);
+                        hideTimer();
+                        showResults();
+                    });
+
+                    const showResults = () => {
+                        const quizContainer = document.querySelector(".quiz-container");
+                        totalTime = Date.now() - startTime;
+
+                        quizContainer.innerHTML = `
+                            <div class="center-content">
+                                <h3>You got <span style="color: red;">${score}</span> out of <span style="color: red;">${totans}</span> Questions</h3>
+                                <h4>Time taken: ${formatTime(totalTime)}</h4>
+                                <button id="reload">Return</button>
+                                <button id="show-all">Show Q/A</button>
+                            </div>
+                        `;
+
+                        document.getElementById("reload").addEventListener("click", () => {
+                            location.reload();
+                        });
+
+                        document.getElementById("show-all").addEventListener("click", () => {
+                            let resultHTML = `<h3>All Questions and Answers</h3><div class="scroll-container">`;
+
+                            filteredQuizData.forEach((q, index) => {
+                                const userAnswer = selectedAnswers[index];
+                                resultHTML += `
+                                    <div class="question-item">
+                                        <div>
+                                            <h4>Q${index + 1}: ${q.question}</h4>
+                                            <p style="color: ${q.answer === 'a' ? 'blue' : 'black'};">
+                                                A: ${q.options[0]} ${q.answer === 'a' && userAnswer === 'a' ? '✔️' : (userAnswer === 'a' ? '❌' : '')}
+                                            </p>
+                                            <p style="color: ${q.answer === 'b' ? 'blue' : 'black'};">
+                                                B: ${q.options[1]} ${q.answer === 'b' && userAnswer === 'b' ? '✔️' : (userAnswer === 'b' ? '❌' : '')}
+                                            </p>
+                                            <p style="color: ${q.answer === 'c' ? 'blue' : 'black'};">
+                                                C: ${q.options[2]} ${q.answer === 'c' && userAnswer === 'c' ? '✔️' : (userAnswer === 'c' ? '❌' : '')}
+                                            </p>
+                                            <p style="color: ${q.answer === 'd' ? 'blue' : 'black'};">
+                                                D: ${q.options[3]} ${q.answer === 'd' && userAnswer === 'd' ? '✔️' : (userAnswer === 'd' ? '❌' : '')}
+                                            </p>
+                                            <p><strong>Ans: ${q.answer.toUpperCase()}</strong></p>
+                                        </div>
+                                    </div>`;
+                            });
+
+                            resultHTML += `</div><button onclick="location.reload()">Return</button>`;
+                            quizContainer.innerHTML = resultHTML;
+                        });
+                    };
+                })
+                .catch((error) => {
+                    console.error("Error loading quiz data:", error);
+                    alert("Failed to load quiz data. Please try again later.");
+                });
+
+            // Help button toggle
+            document.getElementById("helpBtn").addEventListener("click", function () {
+                const helpText = document.getElementById("helpText");
+                helpText.style.display = helpText.style.display === "block" ? "none" : "block";
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
